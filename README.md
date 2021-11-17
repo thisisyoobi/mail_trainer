@@ -33,8 +33,9 @@ cmd나 파워쉘에서 docker login 명령어를 입력하여 Docker Hub의 계�
 해당 파일을 실행하면 자동으로 이미지 파일을 실행한 컨테이너 내부로 들어가집니다.
 ![KakaoTalk_20211117_164933225](https://user-images.githubusercontent.com/90955623/142159938-74d096d4-ec1b-426a-8918-1c76a822ae53.png)
 
-컨테이너 내부에서 bash set.sh 명령어를 입력해 쉘 스크립트 파일을 실행해 주세요.
+컨테이너 내부에서 bash set.sh 명령어를 입력해 쉘 스크립트 파일을 실행해 주세요.   
 그리고 웹 서버를 구동할 PC의 공인 IP 주소나 호스트 IP 주소를 입력해 주세요.
+
 ![KakaoTalk_20211117_170319306](https://user-images.githubusercontent.com/90955623/142160022-5c6d9836-1835-4055-864d-560c5eb2b89d.png)
 
 
