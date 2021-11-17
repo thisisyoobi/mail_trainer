@@ -16,6 +16,10 @@
 
 ### Build Setup
 ```
-> docker 
+> docker pull dlwhdgkr98/project_test:2
+> docker run -it --name mail_trainer -p 3306:3306 -p 3307:21 -p 8080:8080 dlwhdgkr98/project_test:2 /bin/bash
 ```
-![KakaoTalk_20211117_162802885](https://user-images.githubusercontent.com/90955623/142159047-0cb980a8-3213-4e92-8985-c4aae595c926.png)
+
+```
+# bash ./set.sh
+```
