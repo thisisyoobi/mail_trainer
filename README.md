@@ -1,5 +1,5 @@
 # KSJ 보안사고 분석대응 7기 프로젝트
-* 수금반 8팀 (보안방연반)
+* 수금반 8팀 (보안방역반)
 * 멘토님 : 올잇원 최진원 대표
 * 팀원 : 곽제니, 김지원, 신사율, 윤동현, 이선아, 임승연, 이종학, 이준학, 유병일
 <img src="http://kshieldjr.org/images/hrpool/logo-hrpool-hover.png" width="400" heigght="270">
@@ -25,6 +25,7 @@ cmd나 파워쉘에서 docker login 명령어를 입력하여 Docker Hub의 계�
 마우스 오른쪽 버튼으로 파일을 선택하고, Powershell에서 실행을 누릅니다.
 
 ![2](https://user-images.githubusercontent.com/90955623/142159331-3b7edfbb-4349-4b12-8581-238f09b24a99.png)
+
 
 
 ![KakaoTalk_20211117_164933225](https://user-images.githubusercontent.com/90955623/142159938-74d096d4-ec1b-426a-8918-1c76a822ae53.png)
