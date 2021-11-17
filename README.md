@@ -11,6 +11,7 @@
 
 * docker 설치되어 있는 PC
 * container.ps1이용 시 windows 파워셸 실행
+* windows가 아닐 시 Build Setup부분 명령어 실행
 
 ## APT 초기 침투 시뮬레이션을 통한 보안인식 증진 교육
 
