@@ -27,7 +27,7 @@ cmd나 파워쉘에서 docker login 명령어를 입력하여 Docker Hub의 계�
 ![2](https://user-images.githubusercontent.com/90955623/142159331-3b7edfbb-4349-4b12-8581-238f09b24a99.png)
 
 
-
+해당 파일을 실행하면 자동으로 이미지 파일을 실행한 컨테이너 내부로 들어가집니다.
 ![KakaoTalk_20211117_164933225](https://user-images.githubusercontent.com/90955623/142159938-74d096d4-ec1b-426a-8918-1c76a822ae53.png)
 
 
