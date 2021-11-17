@@ -21,7 +21,7 @@
 cmd나 파워쉘에서 docker login 명령어를 입력하여 Docker Hub의 계정에 로그인을 합니다.
 ![KakaoTalk_20211117_162802885](https://user-images.githubusercontent.com/90955623/142159047-0cb980a8-3213-4e92-8985-c4aae595c926.png)
 
-다운받은 container.ps1를 실행합니다.
+다운받은 container.ps1를 실행합니다.   
 마우스 오른쪽 버튼으로 파일을 선택하고, Powershell에서 실행을 누릅니다.
 ![2](https://user-images.githubusercontent.com/90955623/142159331-3b7edfbb-4349-4b12-8581-238f09b24a99.png)
 
