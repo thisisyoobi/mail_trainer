@@ -1,0 +1,11 @@
+{"info": [
+	{"name":"name", "email" : "email", "sex" : "성별"},
+	{"name":"유병일", "email" : "thisisyoobi@naver.com", "sex" : "남"},
+	{"name":"신사율", "email" : "seongjae3401@gmail.com", "sex" : "남"},
+	{"name":"이준학", "email" : "aa1103@cau.ac.kr", "sex" : "남"},
+	{"name":"이선아", "email" : "sunnie39@naver.com", "sex" : "여"},
+	{"name":"이종학", "email" : "kbfanta@suwon.ac.kr", "sex" : "남"},
+	{"name":"임승연", "email" : "lsy5490@naver.com", "sex" : "여"},
+	{"name":"곽제니", "email" : "kawkjenny11@gmail.com", "sex" : "여"},
+	{"name":"김지원", "email" : "j2won0215@gmail.com", "sex" : "여"}
+]}

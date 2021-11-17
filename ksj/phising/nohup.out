@@ -1,0 +1,8 @@
+server start
+wait
+Traceback (most recent call last):
+  File "server.py", line 62, in <module>
+    client_socket, addr = server_socket.accept()
+  File "/usr/lib/python3.6/socket.py", line 205, in accept
+    fd, addr = self._accept()
+KeyboardInterrupt

